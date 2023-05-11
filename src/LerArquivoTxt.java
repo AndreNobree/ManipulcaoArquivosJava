@@ -6,9 +6,11 @@ public class LerArquivoTxt {
     
     void abreArquivo() {
         try {
-            Recebe chamaVariavelArquivo = new Recebe();
-            //colocar o caminho numa variavel da classe Recebe.java e chame ela aqui
-            FileReader reader = new FileReader(chamaVariavelArquivo.nomeArquivo);
+            Recebe chamaRecebe = new Recebe();
+            String caminhoArquivo =  chamaRecebe.pegaArquivo();
+            
+            System.out.println(caminhoArquivo);
+            FileReader reader = new FileReader(caminhoArquivo);
             
             BufferedReader bufferedReader = new BufferedReader(reader);
 
