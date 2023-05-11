@@ -3,26 +3,23 @@ import java.util.Scanner;
 public class Recebe { 
     String resp;
     int respNumber;
-    String nomeArquivo;
+    
 
-    void carrega(){
+    int carrega(){
         Scanner entrada = new Scanner(System.in);
 
         System.out.print("DIGITE O NUMERO DA OPÇÃO >> ");
         respNumber = entrada.nextInt();
 
-        
-
         entrada.close();
 
-        pegaArquivo();
-
-        return;
+        return respNumber;
     }
 
     String pegaArquivo() {
-        LerArquivoTxt chamaLerArquivoTxt = new LerArquivoTxt();
-        nomeArquivo = "";
+        
+        String nomeArquivo;
+        nomeArquivo = "\\caminho\\";
         switch (respNumber){
             case 1:
                 nomeArquivo += "0DOCsankhya.txt";
@@ -107,9 +104,9 @@ public class Recebe {
                 
                 break;          
         }
-        chamaLerArquivoTxt.abreArquivo();
         return nomeArquivo;
     }
+    
 
     void menuDoc(){
         System.out.println("#################################");
@@ -122,7 +119,7 @@ public class Recebe {
         System.out.println("7 -> isNotEmpty - JAVA");
         System.out.println("8 -> replaceString - JAVA");
         System.out.println("#################################");
-        carrega();
+        // carrega();
     }
     void menuJava(){
         System.out.println("#################################");
@@ -132,7 +129,7 @@ public class Recebe {
         System.out.println("12 -> select2 - JAVA/SANKHYA");
         System.out.println("13 -> timeout - JAVA");
         System.out.println("#################################");
-        carrega();
+        // carrega();
     }
     void menuTime(){
         System.out.println("#################################");
@@ -141,6 +138,6 @@ public class Recebe {
         System.out.println("16 -> getNow - JAVA/SANKHYA");
         System.out.println("17 -> getToday - JAVA/SANKHYA");
         System.out.println("#################################");
-        carrega();
+        // carrega();
     }
 }
