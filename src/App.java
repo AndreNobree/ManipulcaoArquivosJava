@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class App {
+
+    int respNumber;
     public static void main(String[] args) throws Exception {
         Scanner entrada = new Scanner(System.in);
         
@@ -28,8 +30,11 @@ public class App {
                 System.out.println("COMANDO INVÁLIDO");
                 break;
         }
+        chamaRecebe.carrega();
+        chamaRecebe.pegaArquivo();
         
-
+        LerArquivoTxt chamaLerArquivoTxt = new LerArquivoTxt();
+        chamaLerArquivoTxt.abreArquivo();
 
         entrada.close();
     }
