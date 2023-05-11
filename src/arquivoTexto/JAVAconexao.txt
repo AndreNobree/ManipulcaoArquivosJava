@@ -1,0 +1,20 @@
+SessionHandle hnd = null; // identifica o início de uma sessão. 
+
+try {
+
+    // abertura da sessão é realizada pelo método
+    hnd = JapeSession.open(); 
+    // sempre que uma sessão é aberta se vincula a um objeto SessionHandle (hnd), que gerencia metadados da sessão
+
+
+
+    hnd.execWithTX( new JapeSession.TXBlock(){
+        public void doWithTx() throws Exception{
+        
+            //realiza operações em entidades ou NativeSQL
+            
+        }
+    });
+} finally {
+    JapeSession.close(hnd); // fechamento da sessão
+}

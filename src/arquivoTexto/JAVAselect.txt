@@ -1,0 +1,20 @@
+SessionHandle hnd = null;
+
+try {
+    hnd = JapeSession.open();
+
+    hnd.setCanTimeout(20); 
+
+    hnd.execWithTX( new JapeSession.TXBlock(){
+        public void doWithTx() throws Exception{
+        
+            NativeSql sql = new NativeSql(jdbc);
+            sql.appendSql("SELECT * FROM TSIUSU WHERE CODUSU = :CODUSU");
+            sql.setNamedParameter("CODUSU", BigDecimal.ZERO); 
+            ResultSet rset = sql.executeQuery();
+            
+        }
+    });
+} finally {
+    JapeSession.close(hnd);
+}

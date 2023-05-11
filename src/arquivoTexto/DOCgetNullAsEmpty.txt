@@ -1,0 +1,15 @@
+/*
+    -> getNullAsEmpty <-
+    Recebe uma string para ser validada.
+    Retorna o valor vazio caso a string passada for igual a null.
+*/
+
+String nomeArquivo = StringUtils.getNullAsEmpty(rsNFe.getString("CHAVENFE"));
+
+if (StringUtils.isEmpty(nomeArquivo)) {
+    nomeArquivo = StringUtils.getNullAsEmpty(xmlEntradaVO.asString("CHAVEACESSO"));
+
+    if (StringUtils.isEmpty(nomeArquivo)) {
+        nomeArquivo = rsNFe.getBigDecimal("NUNOTA").toString();
+    }
+}

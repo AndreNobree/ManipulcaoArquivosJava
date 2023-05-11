@@ -1,0 +1,22 @@
+SessionHandle hnd = null;
+
+try {
+    hnd = JapeSession.open();
+
+    /*  Especifica o limite de tempo para expiração da sessão, 
+        além de evitar que uma sessão cause algum tipo de conflito ou 
+        algum deadlock no banco de dados. 
+        O TimeOut de sessão pode ser evitado usando métodos específicos como "hnd.setCanTimeout(false)".
+    */
+    hnd.setCanTimeout(false); //seta o valor false para que o timeout não ocorra.
+
+    hnd.execWithTX( new JapeSession.TXBlock(){
+        public void doWithTx() throws Exception{
+        
+            //realiza operações em entidades ou NativeSQL
+            
+        }
+    });
+} finally {
+    JapeSession.close(hnd);
+}

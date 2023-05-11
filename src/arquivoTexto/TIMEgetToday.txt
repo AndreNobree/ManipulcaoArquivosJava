@@ -1,0 +1,4 @@
+/*
+    -> getToday <-
+    Retorna um long com a data do dia atual. Sem campo de hora.
+*/

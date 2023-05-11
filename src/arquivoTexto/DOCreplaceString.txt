@@ -1,0 +1,11 @@
+/*
+    -> replaceString <-
+    Recebe como argumento a palavra a procurar, a palavra a ser trocada
+    o texto a ser alterado e uma flag se deve alterar todas as ocorrências.
+    Troca uma string por outra dentro de um determinado texto.
+*/
+
+StringBuffer strForm = new StringBuffer(formula);
+StringUtils.replaceString("FORMULA.", "", strForm, true);
+StringUtils.replaceString("QUETGFCUS", "TGFCUS", strForm, true);
+StringUtils.replaceString("QUETGFCUSITE", "TGFCUSITE", strForm, true);

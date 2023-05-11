@@ -1,0 +1,53 @@
+-> MODULO JAVA <-
+
+    açãoAgendada {
+        - executa de forma automatica, rotinas de processamento periodicamenteem horarios, datas ou intervalos
+        EX: disparo de email de liberação de limite
+
+        desenvolvimentoAçãoAgendada {
+            - implementar a interface ScheduledAction(cuckoo.jar)
+            - método onTime()
+        }
+
+        telaDeConfiguraçãoAçãoAgendada{
+            - Ações agendadas
+        }
+
+    }
+
+    ==========================================================================
+    ==========================================================================
+
+    botãoDeAção {
+        - executa rotinas com acionamento manual
+        EX: consulta de endereço por CEP
+
+        desenvolvimentoBotãoDeAção {
+            - implementar a interface AcaoRotinaJava(mge-modelcore.jar)
+            - método doAction()
+        }
+
+        telaDeConfiguraçãoBotãoDeAção {
+            - dicionario de dados
+            - contrutor de telas
+        }
+    }
+
+    ==========================================================================
+    ==========================================================================
+    
+    eventoProgramado {
+        - executa rotinas que são disparados pelas operações
+        EX: validação de limite de compra
+
+        desenvolvimentoEventoProgramado {
+            - implementar a interface EventoProgramadoJava(mge-modelcore.jar)
+            - métodos afterDelete(), afterInsert(), afterUpdate(), beforeCommit(), beforeDelete(), beforeInsert(), beforeUpdate()
+        }
+
+        telaDeConfiguraçãoEventoProgramado {
+            - dicionario de dados
+            - contrutor de telas,
+        }
+    }
+

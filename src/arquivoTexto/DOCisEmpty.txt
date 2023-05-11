@@ -1,0 +1,21 @@
+/*
+    -> isEmpty
+    Recebe uma string para ser validada.
+    Retorna o true caso uma string seja nula ou vazia.
+*/
+
+String valor = criterio.getValor();
+if (!StringUtils.isEmpty(valor)) {
+    CampoVO campo = criterio.getCampoCriterio();
+    String operador;
+
+    if (campo.getTipo().equalsIgnoreCase("S")) {
+        valor = valor + "%";
+        operador = "like";
+    } else {
+        operador = "=";
+    }
+
+    sql.appendSql(String.format("AND UPPER(ORD.%s) %s UPPER(:%s) ", campo.getNome(), operador, campo.getNome()));
+    sql.setNamedParameter(campo.getNome(), valor);
+}

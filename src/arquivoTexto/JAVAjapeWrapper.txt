@@ -1,0 +1,13 @@
+SessionHandle hnd = null;
+
+try {
+
+    hnd = JapeSession.open();
+    JapeWrapper empresaDAO = JapeFactory.dao(DynamicEntityNames.EMPRESA);
+    DynamicVO empresa = empresaDAO.findByPK(BigDecimal.ZERO);
+    
+}
+
+finnaly {
+    JapeSession.close(hnd);
+}

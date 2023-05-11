@@ -1,0 +1,38 @@
+/*
+    DynamicVO é uma classe Java que é usada para criar objetos de valor dinâmicos. 
+    Essa classe é usada para criar objetos de valor que podem ser 
+    usados em tempo de execução. Esses objetos são criados dinamicamente e podem ser 
+    usados para armazenar dados em tempo de execução. Eles são úteis quando você 
+    precisa criar objetos de valor que não podem ser criados usando classes Java padrão.
+
+    O DynamicVO aceita apenas 5 tipos de dados: BigDecimal, Timestamp, String, byte[] e char[]. 
+    Caso seja utilizado um valor diferente destes tipos será lançada uma exceção ao tentar 
+    atualizar ou inserir um novo registro. Esse comportamento não se aplica para propriedades 
+    transientes do VO (setAceptTransientProperties).
+*/
+
+// Evite realizar declaração de variáveis como indicado abaixo 
+finVO.setProperty("VLRDESDOB", 100); ❌❌❌
+  
+
+// Uso indicado para declaração de váriaveis
+finVO.setProperty("VLRDESDOB", BigDecimal.valueof(100)); ✅✅✅ 
+
+dwfFacade.createEntity(DynamicEntityNames.FINANCEIRO, (EntityVO) finVO);
+
+/*
+    Para utilizar propriedades transientes no DynamicVO é necessário configurá-lo 
+    previamente (setAceptTransientProperties), caso contrário será lançado exceção ao tentar 
+    setar a propriedade. Além disso, é uma boa prática utilizar o método ‘containsProperty’ 
+    antes de pegar a propriedade transiente, caso contrário pode ocorrer exceção.
+*/
+
+//Atenção a declaração prévia do método setAceptTransientProperties 
+finVO.setAceptTransientProperties(true); ✅✅✅ 
+
+finVO.setProperty("CONTROLA ACESSO", "S");
+
+// Utilize o método containsProperty em conjunto com a propriedade transiente
+if (finVO.containsProperty("CONTROLA ACESSO") && finVO.asBoolean("CONTROLA ACESSO")) { ✅✅✅ 
+    validarAcesso(finVo);
+ }

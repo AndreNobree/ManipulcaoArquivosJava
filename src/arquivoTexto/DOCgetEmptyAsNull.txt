@@ -1,0 +1,16 @@
+/*
+    -> getEmptyAsNull <-
+    Recebe uma string para ser validada.
+    Retorna o valor null caso a string passada for vazia.
+*/
+
+StringBuffer where = new StringBuffer();
+
+for (BigDecimal vendedor : vendedores) {
+        if (StringUtils.getEmptyAsNull(where.toString()) == null) {
+                where.append(" (this.CODVEND IN ) ");
+                where.append(vendedor);
+        } else {
+                where.append(" , " + vendedor);
+        }
+}

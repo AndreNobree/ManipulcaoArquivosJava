@@ -1,0 +1,11 @@
+/*
+    -> isNotEmpty <-
+    Recebe uma string para ser validada.
+    Retorna o true caso uma string seja diferente de null e com algum conteúdo.
+*/
+
+if (StringUtils.isNotEmpty(processStatus.info.getParams())) {
+    Document params = XMLUtils.buildDocumentFromString(processStatus.info.getParams(), true);
+    Element config = params.getRootElement();
+    parametros = config.getChild("parametros");
+}

@@ -1,0 +1,39 @@
+try {
+    queCab = new NativeSql(jdbc);
+ 
+   /*
+        Em contextos de loops, quando apenas os parâmetros mudam a cada iteração, 
+        devemos configurar o NativeSql para reutilizar os Statements. 
+        Neste caso, a query será preparada fora do loop e os parâmetros serão 
+        injetados dentro do loop. Além disso, devemos sempre criar um código r
+        obusto que fecha o ResultSet aberto a cada iteração 
+        (evitar a exceção de máximo de cursores abertos).
+
+   */
+    queCab.setReuseStatements(true);  //Utilização do Statements  
+ 
+    //Preparação da query fora do loop
+    queCab.appendSql("SELECT NUNOTA, CODEMP FROM TGFCAB WHERE CODPARC = :CODPARC AND DTNEG = :DTNEG");  
+ 
+    for (Map negociacao: negociacoes) {
+ 
+        //Inserção dos parâmetros dentro do loop  
+        queCab.cleanParameters();
+        queCab.setNamedParameter("CODPARC", negociacao.get("CODPARC"));
+        queCab.setNamedParameter("DTNEG", negociacao.get("DTNEG"));
+ 
+        ResultSet rs = null;
+ 
+        try {
+            rs = queCab.executeQuery();
+ 
+            while (rs.next()) {
+ 
+            }
+        }finally {
+            JdbcUtils.closeResultSet(rs);
+        }
+    }
+} finally {
+    NativeSql.releaseResources(queCab);
+}

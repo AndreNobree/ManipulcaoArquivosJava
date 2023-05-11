@@ -1,0 +1,7 @@
+/*
+    -> clearTime <-
+    Recebe um Timestamp para ser tratado.
+    Retorna o Timestamp com a hora minuto e segundos zerados.
+*/
+
+Timestamp hoje = TimeUtils.clearTime(TimeUtils.getNow());

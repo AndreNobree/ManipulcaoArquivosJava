@@ -1,0 +1,11 @@
+TGFCAB -> corresponde ao cabeçalho da nota, e recebe grande parte das chaves estrangeiras (FK) 
+de outras tabelas relacionadas a ela. Ligada a ela, através da chave primária NUNOTA, temos a TGFITE.
+
+
+TGFITE ->  informações das quantidades negociadas, através do campo QTDNEG e do preço de venda do produto, 
+através do campo VLRUNIT. O resultado dessa operação resulta no VLRTOT.
+
+
+TGFPRO -> responsável por centralizar informações a respeito dos produtos inseridos no ERP Sankhya. 
+Para trazer informações do cadastro de produtos, relaciona-se a chave estrangeira CODPROD da tabela TGFITE 
+com a chave primária CODPROD da tabela TGFPRO.

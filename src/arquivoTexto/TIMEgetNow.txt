@@ -1,0 +1,8 @@
+/*
+    -> getNow <-
+    Retorna um Timestamp com a data/hora atual.
+*/
+
+NotaGerada nota = new NotaGerada();
+nota.setDataInicio(dataInicio != null ? dataInicio : TimeUtils.getNow());
+nota.setDataFinal(dataFinal != null ? dataFinal : TimeUtils.getNow());

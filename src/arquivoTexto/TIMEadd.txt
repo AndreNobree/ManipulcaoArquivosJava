@@ -1,0 +1,7 @@
+/*
+    -> add <-
+    Recebe um long de data, um int de quantidade e um int de campo de calendar.
+    Adiciona a data recebida a quantidade definida para o campo de data selecionado.
+*/
+
+Timestamp dtFimPeriodo = new Timestamp(TimeUtils.add(dtInicial.getTime(), -1, Calendar.DAY_OF_MONTH));
